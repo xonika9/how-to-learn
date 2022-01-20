@@ -44,9 +44,19 @@
 
 .footer {}
 
-.logo.logo_place_header {}
+.logo {
 
-.header__title {}
+}
+
+.logo_place_header {
+  position: absolute;
+  top: 30px;
+  left: 64px;
+}
+
+.header__title {
+  display: flex;
+}
 
 .header__sublitle {}
 
