@@ -20,12 +20,108 @@
 .header__square-pic {
   height: 568px;
   width: 568px;
+  background-color: #2f80ed;
 }
 
 /* и элемента с модификатором вида ключ-значение */
 .table__cell_theme_dark {
   width: 200px;
-  color: white;
+  color: black;
+  /*поставить white*/
   margin-right: 0;
   margin-top: 80px;
 }
+
+#description {}
+
+#kaufman {}
+
+.page {}
+
+.header {}
+
+.content {}
+
+.footer {}
+
+.logo.logo_place_header {}
+
+.header__title {}
+
+.header__sublitle {}
+
+.header__link.link {}
+
+.header__main-illustration {}
+
+.header__square-pic {}
+
+.description {}
+
+.digits {}
+
+.feynman {}
+
+.kaufman {}
+
+.footer__columns {}
+
+.logo__img {}
+
+.two-columns {}
+
+.two-column__brief {}
+
+.two-columns__main-text {}
+
+.two-columns__paragraph {}
+
+.section-title {}
+
+.section-subtitle {}
+
+.table {}
+
+.feynman__title {}
+
+.feynman__subtitle {}
+
+.feynman__link.link {}
+
+.section-title.section-title_theme_dark {}
+
+.section-subtitle.section-subtitle_theme_dark {}
+
+.footer__column_copyright {}
+
+.footer__column_info {}
+
+.footer__column_social {}
+
+.two-columns__span-accent {}
+
+.table__cell {}
+
+.table__text {}
+
+.table__cell.table__cell_theme_dark {}
+
+.logo.logo_place_footer {}
+
+.footer__author {}
+
+.footer__column-heading {}
+
+.footer__column-links {}
+
+.footer__social-icon {}
+
+.footer__column-link {}
+
+.table__heading {}
+
+.table__text.table__text_2nd-row {}
+
+.table__heading.table__heading_theme_dark {}
+
+.table__text.table__text_theme_dark {}
