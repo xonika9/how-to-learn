@@ -23,6 +23,7 @@
 .header__title {
   z-index: 2;
 
+<<<<<<< HEAD
   width: 730px;
   margin: 0;
   padding: 0;
@@ -76,6 +77,16 @@
   height: 568px;
 
   background-color: #2f80ed;
+=======
+.footer {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  background-color: #1f1f1f;
+  min-height: 350px;
+  padding-top: 60px;
+  padding-bottom: 40px;
+>>>>>>> 0529f2974ce97bfe5d52ff8a6541104968ab4a6d
 }
 
 .logo {
