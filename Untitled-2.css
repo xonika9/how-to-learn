@@ -1,0 +1,839 @@
+/*
+ * Сглаживание шрифтов для всей страницы, подробнее об этом —
+ * в уроках про адаптацию страницы под различные устройства
+ */
+
+.page {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%;
+  -ms-font-feature-settings: "kern"1;
+  font-feature-settings: "kern";
+
+}
+
+/*
+ * Всю секцию, в которой расположена форма, мы прибили
+ * к левому краю при помощи фиксированного позиционирования
+ */
+
+.form {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 320px;
+  height: 100vh;
+
+  transition: left .5s;
+
+  border-right: 1px solid #000;
+  background: rgba(255, 255, 255, .95);
+
+  font-family: 'Alegreya Sans', sans-serif;
+
+}
+
+/*
+ * Класс, созданный для анимации секции с формой.
+ * Свойство left будет плавно меняться, убирая секцию
+ * за пределы экрана в нужный момент
+ */
+
+.form_is-closed {
+  left: -320px;
+}
+
+/* Блок с иконкой, сворачивающей и раскрывающей секцию с формой */
+
+.form__toggle {
+  position: absolute;
+  top: 0;
+  right: -50px;
+
+  display: flex;
+
+  width: 50px;
+  height: 50px;
+
+  cursor: pointer;
+  transition: opacity .4s;
+
+  background-color: rgba(0, 0, 0, .95);
+
+}
+
+.form__toggle:hover {
+  opacity: .8;
+}
+
+.form__toggle-image {
+  width: 12px;
+  height: 20px;
+  margin: auto;
+
+}
+
+/* Поворот иконки, отвечающей за анимацию секции с формой */
+
+.form_is-closed .form__toggle-image {
+  transform: rotate(180deg);
+}
+
+/*
+ * Высота контейнера вычисляется функцией calc,
+ * которую мы рассмотрим в уроках про адаптивную и отзывчивую верстку.
+ * Свойство overflow отвечает за поведение внешнего контейнера в случае,
+ * если содержимое не помещается в его размеры.
+ * В данном случае — появится вертикальная прокрутка.
+ */
+
+.form__main-container {
+  overflow-y: scroll;
+
+  height: calc(100vh - 40px);
+
+}
+
+/* Заголовок формы */
+
+.form__heading {
+  width: 240px;
+  margin: 23px auto 0;
+
+  font-size: 28px;
+  line-height: 32px;
+
+}
+
+.form__heading_type_ctrl-el-heading {
+  margin: 35px auto 0;
+
+  font-size: 20px;
+  font-weight: normal;
+  line-height: 30px;
+
+}
+
+/* Непосредственно форма */
+
+.form__admin {
+  height: 100vh;
+}
+
+/* Стили всех элементов fieldset */
+
+.form__input-container {
+  width: 240px;
+  margin: auto;
+  padding-bottom: 50px;
+
+  border: 0;
+
+}
+
+/* Линия-разделитель между fieldset'ами */
+
+.form__line {
+  height: 1px;
+
+  background-color: #000;
+
+}
+
+/* Общие стили для всех лейблов */
+
+.form__label {
+  display: block;
+
+  margin: 35px auto 0;
+
+  font-size: 20px;
+  line-height: 30px;
+
+}
+
+/* Общие стили для всех полей ввода */
+
+.form__item {
+  box-sizing: border-box;
+  width: 100%;
+  height: 24px;
+  margin-top: 5px;
+
+  border: 0;
+  border-bottom: 1px solid #bcbcc4;
+  background-color: transparent;
+
+  font-family: inherit;
+  font-size: 14px;
+
+}
+
+/* Замена цвета внешней линии при фокусе поля ввода */
+.form__item:focus {
+  outline-color: #fff6c5;
+}
+
+/* Стилизуем плейсхолдеры */
+
+/* Поля ввода */
+
+.form__item_el_main-text {
+  height: 150px;
+  padding: 6px 6px 4px;
+
+  border: 1px solid #bcbcc4;
+  background: #fff;
+
+  font-size: 14px;
+
+}
+
+
+.form__item[type="number"] {
+  padding: 0 4px;
+
+  color: black;
+  border: 1px solid #bcbcc4;
+  background-color: white;
+
+}
+
+
+.form__item[type="date"] {
+  padding: 0 4px;
+
+  color: black;
+  border: 1px solid #bcbcc4;
+  background-color: white;
+
+  font-family: 'Alegreya Sans', sans-serif;
+
+}
+
+
+.form__item[type="color"] {
+  width: 48px;
+  height: 30px;
+  padding: 0;
+
+  border-bottom: 0;
+
+}
+
+
+.form__item[type="range"] {
+  width: 144px;
+}
+
+
+/* Поле выпадающего списка с классом form_item */
+select.form__item {
+  color: black;
+  border: 1px solid #bcbcc4;
+  background-color: white;
+
+}
+
+
+.form__item[type="radio"] {
+  display: inline-block;
+
+  width: 16px;
+  height: 16px;
+
+}
+
+
+.form__item[type="radio"][value="two-columns"] {
+  margin-left: 25px;
+}
+
+.form__item[type="checkbox"] {
+  display: inline-block;
+
+  width: 16px;
+  height: 16px;
+  margin: 0;
+
+  vertical-align: middle;
+
+}
+
+.form__label_direction_right {
+  display: inline;
+
+  margin-left: 10px;
+
+  font-size: 14px;
+  line-height: 30px;
+
+}
+
+/* Зона кнопок и сами кнопки */
+
+.form__handlers {
+  width: 320px;
+  height: 40px;
+  margin: 0;
+
+  border: 0;
+
+  font-size: 0;
+
+}
+
+/* Общие стили для всех кнопок */
+.form__button {
+  width: 50%;
+  height: 40px;
+  margin: 0;
+  padding-bottom: 5px;
+
+  cursor: pointer;
+  transition: opacity .4s;
+
+  color: white;
+  border: 0;
+
+  font-family: inherit;
+  font-size: 14px;
+
+}
+
+.form__button:hover {
+  opacity: .7;
+}
+
+
+/* Замена цвета внешней линии при фокусе кнопки */
+.form__button:focus {
+  outline-color: #fff6c5;
+}
+
+.form__button[type="submit"] {
+  background-color: #000;
+}
+
+
+.form__button[type="reset"] {
+  background-color: #ea3a3a;
+}
+
+
+/* Стили страницы */
+
+.content {
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 60px;
+
+  font-family: 'Playfair Display', serif;
+
+}
+
+.content__heading {
+  width: 523px;
+  margin: auto;
+
+  text-align: center;
+
+  font-size: 55px;
+  font-weight: bold;
+  line-height: 60px;
+
+}
+
+.content__subheading {
+  width: 430px;
+  margin: 40px auto;
+
+  text-align: center;
+
+  font-size: 20px;
+  line-height: 30px;
+
+}
+
+.content__image-item {
+  width: 100%;
+}
+
+.content__image-copyright {
+  margin-top: 20px;
+
+  font-size: 14px;
+
+}
+
+/*
+ * В этом элементе мы применяем свойства column-count
+ * и column-gap, они новые для вас.
+ * Эти свойства разбивают текст на колонки.
+ * column-count: 1; — означает текст в одну колонку
+ * column-gap: 40px; — рекомендуемое расстояние между колонками
+ */
+
+.content__text {
+  width: 70%;
+  margin: 30px auto;
+
+  font-size: 20px;
+  line-height: 30px;
+
+  column-count: 1;
+  column-gap: 40px;
+
+}
+
+.content__paragraph {
+  margin: 30px 0;
+}
+
+.content__link {
+  color: black;
+}
+
+.content__date {
+  width: 70%;
+  margin: 90px auto 0;
+
+  text-decoration: underline;
+
+  font-size: 20px;
+
+}
+
+.content__author {
+  width: 70%;
+  margin: 20px auto 0;
+
+  font-size: 20px;
+
+}
+
+.footer__container {
+  height: 100px;
+}
+
+/*
+ * Сглаживание шрифтов для всей страницы, подробнее об этом —
+ * в уроках про адаптацию страницы под различные устройства
+ */
+
+.page {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%;
+  -ms-font-feature-settings: "kern"1;
+  font-feature-settings: "kern";
+
+}
+
+/*
+ * Всю секцию, в которой расположена форма, мы прибили
+ * к левому краю при помощи фиксированного позиционирования
+ */
+
+.form {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 320px;
+  height: 100vh;
+
+  transition: left .5s;
+
+  border-right: 1px solid #000;
+  background: rgba(255, 255, 255, .95);
+
+  font-family: 'Alegreya Sans', sans-serif;
+
+}
+
+/*
+ * Класс, созданный для анимации секции с формой.
+ * Свойство left будет плавно меняться, убирая секцию
+ * за пределы экрана в нужный момент
+ */
+
+.form_is-closed {
+  left: -320px;
+}
+
+/* Блок с иконкой, сворачивающей и раскрывающей секцию с формой */
+
+.form__toggle {
+  position: absolute;
+  top: 0;
+  right: -50px;
+
+  display: flex;
+
+  width: 50px;
+  height: 50px;
+
+  cursor: pointer;
+  transition: opacity .4s;
+
+  background-color: rgba(0, 0, 0, .95);
+
+}
+
+.form__toggle:hover {
+  opacity: .8;
+}
+
+.form__toggle-image {
+  width: 12px;
+  height: 20px;
+  margin: auto;
+
+}
+
+/* Поворот иконки, отвечающей за анимацию секции с формой */
+
+.form_is-closed .form__toggle-image {
+  transform: rotate(180deg);
+}
+
+/*
+ * Высота контейнера вычисляется функцией calc,
+ * которую мы рассмотрим в уроках про адаптивную и отзывчивую верстку.
+ * Свойство overflow отвечает за поведение внешнего контейнера в случае,
+ * если содержимое не помещается в его размеры.
+ * В данном случае — появится вертикальная прокрутка.
+ */
+
+.form__main-container {
+  overflow-y: scroll;
+
+  height: calc(100vh - 40px);
+
+}
+
+/* Заголовок формы */
+
+.form__heading {
+  width: 240px;
+  margin: 23px auto 0;
+
+  font-size: 28px;
+  line-height: 32px;
+
+}
+
+.form__heading_type_ctrl-el-heading {
+  margin: 35px auto 0;
+
+  font-size: 20px;
+  font-weight: normal;
+  line-height: 30px;
+
+}
+
+/* Непосредственно форма */
+
+.form__admin {
+  height: 100vh;
+}
+
+/* Стили всех элементов fieldset */
+
+.form__input-container {
+  width: 240px;
+  margin: auto;
+  padding-bottom: 50px;
+
+  border: 0;
+
+}
+
+/* Линия-разделитель между fieldset'ами */
+
+.form__line {
+  height: 1px;
+
+  background-color: #000;
+
+}
+
+/* Общие стили для всех лейблов */
+
+.form__label {
+  display: block;
+
+  margin: 35px auto 0;
+
+  font-size: 20px;
+  line-height: 30px;
+
+}
+
+/* Общие стили для всех полей ввода */
+
+.form__item {
+  box-sizing: border-box;
+  width: 100%;
+  height: 24px;
+  margin-top: 5px;
+
+  border: 0;
+  border-bottom: 1px solid #bcbcc4;
+  background-color: transparent;
+
+  font-family: inherit;
+  font-size: 14px;
+
+}
+
+/* Замена цвета внешней линии при фокусе поля ввода */
+.form__item:focus {
+  outline-color: #fff6c5;
+}
+
+/* Стилизуем плейсхолдеры */
+
+/* Поля ввода */
+
+.form__item_el_main-text {
+  height: 150px;
+  padding: 6px 6px 4px;
+
+  border: 1px solid #bcbcc4;
+  background: #fff;
+
+  font-size: 14px;
+
+}
+
+
+.form__item[type="number"] {
+  padding: 0 4px;
+
+  color: black;
+  border: 1px solid #bcbcc4;
+  background-color: white;
+
+}
+
+
+.form__item[type="date"] {
+  padding: 0 4px;
+
+  color: black;
+  border: 1px solid #bcbcc4;
+  background-color: white;
+
+  font-family: 'Alegreya Sans', sans-serif;
+
+}
+
+
+.form__item[type="color"] {
+  width: 48px;
+  height: 30px;
+  padding: 0;
+
+  border-bottom: 0;
+
+}
+
+
+.form__item[type="range"] {
+  width: 144px;
+}
+
+
+/* Поле выпадающего списка с классом form_item */
+select.form__item {
+  color: black;
+  border: 1px solid #bcbcc4;
+  background-color: white;
+
+}
+
+
+.form__item[type="radio"] {
+  display: inline-block;
+
+  width: 16px;
+  height: 16px;
+
+}
+
+
+.form__item[type="radio"][value="two-columns"] {
+  margin-left: 25px;
+}
+
+.form__item[type="checkbox"] {
+  display: inline-block;
+
+  width: 16px;
+  height: 16px;
+  margin: 0;
+
+  vertical-align: middle;
+
+}
+
+.form__label_direction_right {
+  display: inline;
+
+  margin-left: 10px;
+
+  font-size: 14px;
+  line-height: 30px;
+
+}
+
+/* Зона кнопок и сами кнопки */
+
+.form__handlers {
+  width: 320px;
+  height: 40px;
+  margin: 0;
+
+  border: 0;
+
+  font-size: 0;
+
+}
+
+/* Общие стили для всех кнопок */
+.form__button {
+  width: 50%;
+  height: 40px;
+  margin: 0;
+  padding-bottom: 5px;
+
+  cursor: pointer;
+  transition: opacity .4s;
+
+  color: white;
+  border: 0;
+
+  font-family: inherit;
+  font-size: 14px;
+
+}
+
+.form__button:hover {
+  opacity: .7;
+}
+
+
+/* Замена цвета внешней линии при фокусе кнопки */
+.form__button:focus {
+  outline-color: #fff6c5;
+}
+
+.form__button[type="submit"] {
+  background-color: #000;
+}
+
+
+.form__button[type="reset"] {
+  background-color: #ea3a3a;
+}
+
+
+/* Стили страницы */
+
+.content {
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 60px;
+
+  font-family: 'Playfair Display', serif;
+
+}
+
+.content__heading {
+  width: 523px;
+  margin: auto;
+
+  text-align: center;
+
+  font-size: 55px;
+  font-weight: bold;
+  line-height: 60px;
+
+}
+
+.content__subheading {
+  width: 430px;
+  margin: 40px auto;
+
+  text-align: center;
+
+  font-size: 20px;
+  line-height: 30px;
+
+}
+
+.content__image-item {
+  width: 100%;
+}
+
+.content__image-copyright {
+  margin-top: 20px;
+
+  font-size: 14px;
+
+}
+
+/*
+ * В этом элементе мы применяем свойства column-count
+ * и column-gap, они новые для вас.
+ * Эти свойства разбивают текст на колонки.
+ * column-count: 1; — означает текст в одну колонку
+ * column-gap: 40px; — рекомендуемое расстояние между колонками
+ */
+
+.content__text {
+  width: 70%;
+  margin: 30px auto;
+
+  font-size: 20px;
+  line-height: 30px;
+
+  column-count: 1;
+  column-gap: 40px;
+
+}
+
+.content__paragraph {
+  margin: 30px 0;
+}
+
+.content__link {
+  color: black;
+}
+
+.content__date {
+  width: 70%;
+  margin: 90px auto 0;
+
+  text-decoration: underline;
+
+  font-size: 20px;
+
+}
+
+.content__author {
+  width: 70%;
+  margin: 20px auto 0;
+
+  font-size: 20px;
+
+}
+
+.footer__container {
+  height: 100px;
+}
