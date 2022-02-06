@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
 
+  transition: opacity 0.3s linear;
   text-decoration: none;
 
   color: white;
@@ -9,4 +10,8 @@
   font-size: 18px;
   font-weight: normal;
   line-height: 30px;
+}
+
+.footer__column-link:hover {
+  opacity: 0.5;
 }
