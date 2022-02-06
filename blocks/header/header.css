@@ -2,6 +2,7 @@
   position: relative;
 
   display: flex;
+  overflow: hidden;
   flex-direction: column;
   justify-content: center;
 
@@ -10,4 +11,5 @@
   max-height: 756px;
 
   background-color: #f2f2f2;
+
 }
