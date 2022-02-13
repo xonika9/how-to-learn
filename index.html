@@ -14,7 +14,6 @@
 
 <body>
   <div class="page">
-    <div id="scroll-progress"></div>
     <header class="header">
       <img class="logo logo_place_header" src="./images/logo/_place/logo_place_header.svg"
         alt="Логотип Яндекс.Практикум">
@@ -278,18 +277,6 @@
       </div>
     </footer>
   </div>
-  <script>
-    const scrollProgress = document.getElementById('scroll-progress');
-    const height =
-      document.documentElement.scrollHeight - document.documentElement.clientHeight;
-
-    window.addEventListener('scroll', () => {
-      const scrollTop =
-        document.body.scrollTop || document.documentElement.scrollTop;
-      scrollProgress.style.width = `${(scrollTop / height) * 100}%`;
-    });
-
-  </script>
 </body>
 
 </html>
