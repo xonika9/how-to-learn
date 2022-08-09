@@ -1,20 +1,20 @@
-# Научиться учиться
+# How to learn
 
-Мой первый проект в Яндекс.Практикуме
+My first project at Yandex.Practicum
 
 ---
 
-## Стек
+## Stack
 
 - HTML
 - CSS
 
-## Реализация
+## Implementation
 
-- Flexbox вёрстка
-- CSS-анимация, @keyframes
+- Flexbox
+- CSS-animation, @keyframes
 - iframe
-- Методология БЭМ
-- Файловая структура БЭМ Nested
+- BEM methodology
+- БЭМ Nested file structure
 
-Ссылка на [GitHub Pages](https://xonika9.github.io/how-to-learn/)
+Link to [GitHub Pages](https://xonika9.github.io/how-to-learn/)
